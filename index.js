@@ -56,9 +56,9 @@ router.post('/images/upload', (req, res) => {
             });
             
 
-            fs.unlink(ocr_path, (err) => {
-            if (err) throw err;
-            });
+            // fs.unlink(ocr_path, (err) => {
+            // if (err) throw err;
+            // });
 
               
 
