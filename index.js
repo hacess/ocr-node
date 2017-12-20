@@ -1,5 +1,7 @@
 'use strict'
 
+/*Ami Ekhon Cal*/
+
 const express = require('express')
 const multer = require('multer');
 const fileType = require('file-type');
@@ -51,7 +53,19 @@ router.post('/upload', (req, res) => {
                 .then(function(result){
                 console.log(result.text)
                 //Tesseract.terminate(ocr_path)
-                res.status(200).json({ocr:result.text})
+                
+                try {
+                    var a = eval(result.text)
+                    //console.log(a)
+                    
+                    } catch (e) {
+                if (e instanceof SyntaxError) {
+                    //console.log(e.message);
+                    var a=e.message;
+                     }
+                }
+                res.status(200).json({ans:a})
+                
 
             });
             
