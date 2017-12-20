@@ -32,7 +32,7 @@ var upload = multer({ storage: storage }).single('image')
 
 
 
-router.post('/images/upload', (req, res) => {
+router.post('/upload', (req, res) => {
 
     upload(req, res, function (err) {
 
@@ -56,9 +56,9 @@ router.post('/images/upload', (req, res) => {
             });
             
 
-            // fs.unlink(ocr_path, (err) => {
-            // if (err) throw err;
-            // });
+            fs.unlink(ocr_path, (err) => {
+            if (err) throw err;
+            });
 
               
 
@@ -66,6 +66,11 @@ router.post('/images/upload', (req, res) => {
         }
 
     });
+});
+
+
+router.get('/', function(req, res){
+    res.json({"message": "Welcome to node ocr give a post request to /images/upload"});
 });
 
 app.use('/', router)
