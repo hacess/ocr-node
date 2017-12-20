@@ -70,7 +70,7 @@ router.post('/upload', (req, res) => {
 
 
 router.get('/', function(req, res){
-    res.json({"message": "Welcome to node ocr give a post request to /images/upload"});
+    res.json({"message": "Welcome to node ocr give a post request to /upload"});
 });
 
 app.use('/', router)
